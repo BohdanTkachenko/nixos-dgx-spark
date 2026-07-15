@@ -2117,6 +2117,11 @@
   TABLET_USB_PEGASUS = lib.mkForce module;
   TAHVO_USB_HOST_BY_DEFAULT = lib.mkForce yes;
   TCG_ARM_CRB_FFA = lib.mkForce yes;
+  # Manual fix-up: the generator omits TCG_CRB (NixOS baseline already
+  # differs from the annotation only transitively), but TCG_ARM_CRB_FFA=y
+  # requires builtin TCG_CRB — without it kconfig restricts FFA to =m and
+  # config generation loops. Matches the 6.17.13 config.
+  TCG_CRB = lib.mkForce yes;
   TCG_TIS = lib.mkForce yes;
   TCG_TIS_CORE = lib.mkForce yes;
   TCG_TIS_I2C_INFINEON = lib.mkForce module;
