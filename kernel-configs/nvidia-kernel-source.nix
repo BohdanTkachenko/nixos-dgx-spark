@@ -1,7 +1,7 @@
 let
-  nvidiaKernelRev = "aea4c7df51fd59f7717d7668110a803d95c7a3f1";
-  nvidiaKernelHash = "sha256-195eFIcuND41riRxE342FM5O7c515sG8ioQE5PE74xU=";
-  nvidiaKernelVersion = "6.17.13";
+  nvidiaKernelRev = "dfa0ae4badca90c50c7e2c73443d78ef55cabd4a";
+  nvidiaKernelHash = "sha256-rjROtUXFgvuDbJswEjYOO1z5VYhTVFvxdw92SnqyESY=";
+  nvidiaKernelVersion = "7.0.6";
 in
 {
   inherit nvidiaKernelRev nvidiaKernelHash nvidiaKernelVersion;

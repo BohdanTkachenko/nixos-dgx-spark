@@ -18,20 +18,12 @@ let
     )
     { inherit lib; };
 
-  nvidiaKernelPatches = [
-    {
-      name = "rust-gendwarfksyms-fix";
-      patch = ../patches/rust-gendwarfksyms-fix.patch;
-    }
-  ];
-
   rawNvidiaKernel = pkgs.linuxPackagesFor (
     baseKernel.override {
       argsOverride = {
         src = kernelSource.mkNvidiaKernelSource pkgs;
         version = "${kernelSource.nvidiaKernelVersion}-nvidia";
         modDirVersion = kernelSource.nvidiaKernelVersion;
-        kernelPatches = nvidiaKernelPatches;
       };
 
       enableCommonConfig = true;

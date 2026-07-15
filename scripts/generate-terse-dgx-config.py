@@ -128,9 +128,15 @@ def get_nvidia_upstream_config(kernel_source_dir: Path, arch: str, flavour: str)
 
     kernel_source_path = kernel_source_dir.resolve()
 
-    nvidia_annotations = kernel_source_path / "debian.nvidia-6.17/config/annotations"
-    if not nvidia_annotations.exists():
-        raise FileNotFoundError(f"NVIDIA annotations not found: {nvidia_annotations}")
+    # The versioned debian dir tracks the kernel series (debian.nvidia-6.17,
+    # debian.nvidia-7.0, ...) — discover it instead of hardcoding one series.
+    candidates = sorted(kernel_source_path.glob("debian.nvidia-*/config/annotations"))
+    if not candidates:
+        raise FileNotFoundError(
+            f"NVIDIA annotations not found under {kernel_source_path}/debian.nvidia-*/config/"
+        )
+    nvidia_annotations = candidates[-1]
+    print(f"Using annotations: {nvidia_annotations}")
 
     annotation_script = kernel_source_path / "debian/scripts/misc/annotations"
     if not annotation_script.exists():
