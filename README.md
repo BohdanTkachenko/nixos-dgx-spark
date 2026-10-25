@@ -1,3 +1,23 @@
+# Moved to Forgejo
+
+**This GitHub copy is retired. Nix builds from its default branch are disabled.**
+
+Use [nix-home/nixos-dgx-spark](https://forge.cyber.place/nix-home/nixos-dgx-spark) for current configuration and rebuilds.
+
+Create a fresh checkout:
+
+```sh
+jj git clone --colocate ssh://git@forge.cyber.place:2222/nix-home/nixos-dgx-spark.git nixos-dgx-spark-forgejo
+```
+
+Flake input URL: `git+ssh://git@forge.cyber.place:2222/nix-home/nixos-dgx-spark`.
+
+The previous configuration is retained in Git history. This retirement commit belongs only on GitHub; keep it out of the active Forgejo repository.
+
+---
+
+The README below is historical.
+
 # Nix and NixOS on the DGX Spark
 
 [![CI](https://github.com/graham33/nixos-dgx-spark/actions/workflows/ci.yml/badge.svg)](https://github.com/graham33/nixos-dgx-spark/actions/workflows/ci.yml)
